@@ -64,6 +64,13 @@ pygame.display.set_caption("Compte client")
 MENU = pygame.Rect(0,0,150,30)
 TEXT_AGENCE = FONT.render(" MENU",1, BLACK )
 
+def afficher_clients2(WINDOW):
+    cursor = bdd.cursor()
+    sql = "SELECT * FROM clients"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    for row in result:        
+        ID  = ("ID", row[0])
 
 def draw_window_9():
     WINDOW.fill(WHITE)
@@ -113,6 +120,7 @@ def main():
                 main_.main_x()
 
             
+
 
         draw_window_9()
         #if user_input == id and user_input2 == passs:
